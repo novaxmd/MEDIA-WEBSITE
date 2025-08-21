@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOVA XMD SETTINGS</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00b894;
+      --primary-light: #33ccaa;
+      --bg: #000;
+      --fg: #fff;
+      --glass: rgba(255, 255, 255, 0.05);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 12px 24px;
+      font-weight: 600;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .card {
+      background: var(--glass);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: 0.6s ease;
+    }
+
+    .fade-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: 0.6s ease;
+    }
+
+    .fade-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: 0.6s ease;
+    }
+
+    .zoom-in.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0f1c1c;
+      padding: 1rem 1.5rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav#drawer {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 260px;
+      height: 100vh;
+      background: #101b1b;
+      padding: 2rem 1.5rem;
+      z-index: 2000;
+      transition: left 0.3s ease;
+    }
+
+    nav#drawer ul {
+      list-style: none;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    nav#drawer a {
+      color: #ccc;
+    }
+  </style>
+</head>
+  
+<header>
+  <div style="font-weight: 800; font-size: 1.5rem;">
+    <span style="color: var(--primary-light);">NOVA</span>-<span style="color: white;">TECH</span>
+  </div>
+  <button id="menu-toggle" style="background: none; border: none; color: white; font-size: 1.5rem;">
+    <i class="fas fa-bars"></i>
+  </button>
+</header>
+
+<nav id="drawer">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <strong style="color: var(--primary-light); font-size: 1.2rem;">NOVA-TECH</strong>
+    <button id="close-menu" style="background: none; border: none; font-size: 1.5rem; color: white;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <ul>
+    <li><a href="#pair" onclick="closeMenu()">Pair</a></li>
+    <li><a href="#deploy" onclick="closeMenu()">Deploy</a></li>
+    <li><a href="#panel" onclick="closeMenu()">Panel</a></li>
+  </ul>
+  <a href="https://whatsapp.com/channel/0029VawO6hgF6sn7k3SuVU3z" target="_blank" class="btn" style="width: 100%; justify-content: center;">Follow Channel</a>
+</nav>
+
+<section id="welcome">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: 30px;">
+      <img src="https://files.catbox.moe/w76aqo.jpg" alt="NOVA-XMD LOGO" width="100" style="border-radius: 50%; box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);" />
+    </div>
+
+    <h1 class="reveal" style="font-size: 2.6rem; font-weight: 800; margin-bottom: 10px;">
+      <span style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; color: transparent;">
+        NOVA-XMD
+      </span>
+    </h1>
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      <div class="card">
+        <h3>📊 Dashboard</h3>
+        <p>Live overview of your bot activity and performance.</p>
+      </div>
+        </style>
+  
+      <div class="card">
+        <h3>📦 Plugin System</h3>
+        <p>Flexible plugin structure, easily extensible with 1 click.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Smart Commands</h3>
+        <p>AI-powered replies, media tools, and moderation utilities.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.8rem;">🪀 List deploy enjoy life by me nova xmd</h2>
+      <p style="opacity: 0.85; max-width: 600px; margin: 0.5rem auto 1.5rem;">
+        Join us here to reach out to us.
+      </p>
+      <a href="https://chat.whatsapp.com/BKoqNbYGCkK5apBNP0nzI3" target="_blank" class="btn">
+        <i class="fas fa-flask"></i> deploy with us
+      </a>
+    </div>
+
+    <div class="reveal">
+      <a href="#pair" class="btn">
+        <i class="fas fa-arrow-down"></i> Start Bot Setup
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="pair">
+  <div class="container">
+    <h2 class="reveal" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">
+      🔐 Pair Your Bot
+    </h2>
+    <p class="reveal" style="opacity: 0.85; max-width: 600px; margin: 0 auto 2rem;">
+      GENERATE A QR OR PAIR CODE TO LINK NOVA-XMD WITH WHATSAPP.
+    </p>
+    <div class="reveal" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+      <a href="https://session-bmb-code.onrender.com/qr" target="_blank" class="btn"><i class="fas fa-qrcode"></i> Scan QR Code</a>
+      <a href="https://session-bmb-code.onrender.com/" target="_blank" class="btn"><i class="fas fa-link"></i> GET PAIR CODE</a>
+    </div>
+  </div>
+</section>
+
+<section id="deploy">
+  <div class="container">
+    <div class="reveal">
+      <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">🚀 DEPLOY NOVA-XMD</h2>
+      <p style="opacity: 0.85; max-width: 600px; margin: 0 auto 2rem;">
+        ᴄʜᴏᴏsᴇ ʏᴏᴜʀ ᴘʀᴇғᴇʀʀᴇᴅ ʜᴏsᴛɪɴɢ ᴘʟᴀᴛғᴏʀᴍ ᴛᴏ ʟᴀᴜɴᴄʜ ᴛʜᴇ ʙᴏᴛ ɪɴ ᴏɴᴇ ᴄʟɪᴄᴋ.
+      </p>
+    </div>
+
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem;">
+
+      <div class="card" style="padding: 2rem;">
+        <img src="https://www.herokucdn.com/favicon.ico" alt="Heroku" width="40" />
+        <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">Heroku</h3>
+        <p style="margin-bottom: 1.5rem;">ᴅᴇᴘʟᴏʏ ʙᴏᴛ ɪɴsᴛᴀɴᴛʟʏ ᴏɴ ʜᴇʀᴏᴋᴜ.</p>
+        <a href="https://dashboard.heroku.com/new?template=https://github.com/novaxmd/NOVA-XMD/tree/main" target="_blank" class="btn"><i class="fas fa-rocket"></i>ᴅᴇᴘʟᴏʏ ɴᴏᴡ</a>
+      </div>
+
+      <div class="card" style="padding: 2rem;">
+        <img src="https://files.catbox.moe/pj5in3.jpg" alt="Render" width="40" />
+        <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">Render</h3>
+        <p style="margin-bottom: 1.5rem;">ʜᴏsᴛ ɪᴛ ᴏɴ ʀᴇɴᴅᴇʀ's ᴄʟᴏᴜᴅ sᴇʀᴠɪᴄᴇs..</p>
+        <a href="https://dashboard.render.com/web/new" target="_blank" class="btn"><i class="fas fa-server"></i>ᴅᴇᴘʟᴏʏ ʀᴇɴᴅᴇʀ</a>
+      </div>
+
+      <div class="card" style="padding: 2rem;">
+        <img src="https://railway.app/favicon.ico" alt="Railway" width="40" />
+        <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">Railway</h3>
+        <p style="margin-bottom: 1.5rem;">Deploy and monitor NOVA XMD via Railway's UI.</p>
+        <a href="https://railway.com/" target="_blank" class="btn"><i class="fas fa-terminal"></i> Use Railway</a>
+      </div>
+
+      <div class="card" style="padding: 2rem;">
+        <img src="https://files.catbox.moe/io2c4t.jpg" alt="Panel" width="40" />
+        <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">Pterodactyl</h3>
+        <p style="margin-bottom: 1.5rem;">Self-host NOVA-XMD on your Pterodactyl panel.</p>
+        <a href="https://www.mediafire.com/file/zazol9x2wwpoe96/NOVA-XMD-main.zip/file" target="_blank" class="btn"><i class="fas fa-cogs"></i> Use Panel</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="footer" style="background: #0c0e12; padding: 60px 20px 30px;">
+  <div class="container reveal">
+    <h3 style="font-size: 1.6rem; margin-bottom: 10px;">🤖 nova xmd on GitHub</h3>
+    <p style="opacity: 0.8; margin-bottom: 2rem;">Join over 2,000 users and contributors building better WhatsApp bots together.</p>
+    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 30px;">
+      <a href="https://github.com/novaxmd" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://t.me/bmb-xmd" class="btn" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://wa.me/255767862457" class="btn" target="_blank"><i class="fas fa-book"></i>contact</a>
+    </div>
+    <p style="font-size: 0.9rem; opacity: 0.6;">&copy; <span id="year"></span>𝙽𝙾𝚅𝙰-𝚇𝙼𝙳 ʙᴜɪʟᴛ ʙʏ ᴇᴅɴᴜᴛ ᴡɪᴛʜ 🖥️</p>
+  </div>
+</section>
+
+<script>
+  const drawer = document.getElementById("drawer");
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("close-menu");
+  toggle.onclick = () => drawer.style.left = "0";
+  close.onclick = () => drawer.style.left = "-100%";
+  function closeMenu() { drawer.style.left = "-100%"; }
+
+  const reveals = document.querySelectorAll(".reveal");
+  function revealOnScroll() {
+    const trigger = window.innerHeight * 0.9;
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < trigger) el.classList.add("active");
+    });
+  }
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+  </html>
+  
