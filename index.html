@@ -5,7 +5,6 @@
 <title>NOVA XMD SETTINGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -19,302 +18,140 @@
   --muted:#9ca3af;
   --border:rgba(255,255,255,.08);
 }
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Poppins,sans-serif;
-}
-
-body{
-  background:radial-gradient(circle at top,#101018,var(--bg));
-  color:var(--text);
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:radial-gradient(circle at top,#101018,var(--bg));color:var(--text)}
 a{text-decoration:none;color:inherit}
 
-/* ================= NAVBAR ================= */
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(11,11,15,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-  z-index:1000;
-}
+/* NAVBAR */
+.navbar{position:fixed;top:0;width:100%;background:rgba(11,11,15,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:1000}
+.nav-inner{max-width:1200px;margin:auto;padding:.8rem 1.2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent}
+.logo img{width:34px;height:34px;border-radius:50%}
+.menu-btn{font-size:1.6rem;cursor:pointer}
 
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:.8rem 1.2rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  font-weight:800;
-  font-size:1.2rem;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.logo img{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  box-shadow:0 0 15px rgba(0,245,255,.6);
-}
-
-.menu-btn{
-  font-size:1.6rem;
-  cursor:pointer;
-  color:var(--text);
-}
-
-/* ================= DRAWER MENU ================= */
-.drawer{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:260px;
-  height:100vh;
-  background:#0d0d14;
-  border-left:1px solid var(--border);
-  padding:1.5rem;
-  transition:.35s;
-  z-index:2000;
-}
-
+/* DRAWER */
+.drawer{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:#0d0d14;border-left:1px solid var(--border);padding:1.5rem;transition:.35s;z-index:2000}
 .drawer.active{right:0}
-
-.drawer-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:2rem;
-}
-
-.drawer a{
-  display:block;
-  padding:.8rem 0;
-  color:var(--muted);
-  font-weight:600;
-}
-
+.drawer a{display:block;padding:.8rem 0;color:var(--muted);font-weight:600}
 .drawer a:hover{color:var(--primary)}
 
-/* ================= CONTENT ================= */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:7rem 1.2rem 3rem;
-  text-align:center;
-}
+/* CONTENT */
+.container{max-width:1100px;margin:auto;padding:7rem 1.2rem 3rem;text-align:center}
+.title{font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent}
+.subtitle{color:var(--muted);margin-bottom:2rem}
 
-.title{
-  font-size:2.8rem;
-  font-weight:800;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  color:transparent;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;margin:3rem 0}
+.card{background:linear-gradient(180deg,var(--card),#0f0f15);border:1px solid var(--border);border-radius:18px;padding:2rem 1.5rem}
 
-.subtitle{
-  color:var(--muted);
-  margin-bottom:2rem;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  padding:.75rem 1.6rem;
-  border-radius:12px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:#000;
-  font-weight:600;
-  transition:.3s;
-}
-
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.6rem;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#000;font-weight:600}
 .btn:hover{transform:translateY(-3px)}
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1.6rem;
-  margin:3rem 0;
-}
+.section-title{font-size:1.9rem;margin-bottom:.6rem}
+.section-desc{color:var(--muted);margin-bottom:2rem}
 
-.card{
-  background:linear-gradient(180deg,var(--card),#0f0f15);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:2rem 1.5rem;
-}
+/* STATS */
+.stats{display:flex;justify-content:center;gap:2rem;margin:2rem 0}
+.stat{background:var(--card);border:1px solid var(--border);padding:1rem 1.5rem;border-radius:14px}
 
-.section-title{
-  font-size:1.9rem;
-  margin-bottom:.6rem;
-}
+/* FORM */
+.contact-form{max-width:600px;margin:auto;background:var(--card);border:1px solid var(--border);padding:2rem;border-radius:18px}
+.contact-form input,.contact-form textarea{width:100%;margin-bottom:1rem;padding:.9rem;border-radius:10px;border:1px solid var(--border);background:#0b0b0f;color:var(--text)}
+.contact-form textarea{height:120px;resize:none}
 
-.section-desc{
-  color:var(--muted);
-  margin-bottom:2rem;
-}
+.status{margin-top:1rem;font-weight:600}
+.success{color:#22c55e}
+.error{color:#ef4444}
 
-/* ================= CONTACT FORM ================= */
-.contact-form{
-  max-width:600px;
-  margin:auto;
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:2rem;
-  border-radius:18px;
-}
-
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  margin-bottom:1rem;
-  padding:.9rem 1rem;
-  border-radius:10px;
-  border:1px solid var(--border);
-  background:#0b0b0f;
-  color:var(--text);
-  outline:none;
-}
-
-.contact-form textarea{
-  resize:none;
-  height:120px;
-}
-
-footer{
-  margin-top:4rem;
-  padding:1.5rem;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:.85rem;
-}
+footer{margin-top:4rem;padding:1.5rem;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
   <div class="nav-inner">
     <div class="logo">
-      <img src="https://files.catbox.moe/io2c4t.jpg" alt="NOVA XMD">
+      <img src="https://files.catbox.moe/io2c4t.jpg">
       NOVA XMD
     </div>
-    <div class="menu-btn" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
+    <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
   </div>
 </nav>
 
-<!-- ================= DRAWER ================= -->
 <div class="drawer" id="drawer">
-  <div class="drawer-header">
-    <strong>NOVA XMD</strong>
-    <i class="fas fa-times" style="cursor:pointer" onclick="toggleMenu()"></i>
-  </div>
   <a href="#pair" onclick="toggleMenu()">Pair</a>
   <a href="#deploy" onclick="toggleMenu()">Deploy</a>
-  <a href="#panel" onclick="toggleMenu()">Panel</a>
+  <a href="#stats" onclick="toggleMenu()">Stats</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
-<!-- ================= CONTENT ================= -->
 <div class="container">
 
-  <h1 class="title">NOVA XMD</h1>
-  <p class="subtitle">Modern WhatsApp Bot Control Panel</p>
+<h1 class="title">NOVA XMD</h1>
+<p class="subtitle">Modern WhatsApp Bot Control Panel</p>
 
-  <!-- PAIR -->
-  <h2 id="pair" class="section-title">🔐 Pair Your Bot</h2>
-  <div class="grid">
-    <div class="card">
-      <a class="btn" href="https://nova-pair-site.onrender.com/qr" target="_blank">
-        <i class="fas fa-qrcode"></i> QR Code
-      </a>
-    </div>
-    <div class="card">
-      <a class="btn" href="https://nova-pair-site.onrender.com" target="_blank">
-        <i class="fas fa-key"></i> Pair Code
-      </a>
-    </div>
-  </div>
+<h2 id="pair" class="section-title">🔐 Pair Bot</h2>
+<div class="grid">
+  <div class="card"><a class="btn" href="https://nova-pair-site.onrender.com/qr" target="_blank">QR Code</a></div>
+  <div class="card"><a class="btn" href="https://nova-pair-site.onrender.com" target="_blank">Pair Code</a></div>
+</div>
 
-  <!-- DEPLOY -->
-  <h2 id="deploy" class="section-title">🚀 Deploy</h2>
-  <div class="grid" id="panel">
-    <div class="card"><a class="btn">Heroku</a></div>
-    <div class="card"><a class="btn">Railway</a></div>
-  </div>
+<h2 id="deploy" class="section-title">🚀 Deploy</h2>
+<div class="grid">
+  <div class="card"><a class="btn" href="https://dashboard.heroku.com" target="_blank">Heroku</a></div>
+  <div class="card"><a class="btn" href="https://railway.app" target="_blank">Railway</a></div>
+  <div class="card"><a class="btn" href="https://app.koyeb.com" target="_blank">Koyeb</a></div>
+  <div class="card"><a class="btn" href="https://dashboard.render.com" target="_blank">Render</a></div>
+</div>
 
-  <!-- CONTACT -->
-  <h2 id="contact" class="section-title">📩 Send Message</h2>
-  <p class="section-desc">Messages go directly to my Telegram chat.</p>
+<h2 id="stats" class="section-title">📊 Project Stats</h2>
+<div class="stats">
+  <div class="stat">⭐ Stars: 0</div>
+  <div class="stat">🍴 Forks: 0</div>
+  <div class="stat">👁 Views: 0</div>
+</div>
 
-  <form class="contact-form" id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="tel" id="phone" placeholder="Your Phone Number" required>
-    <textarea id="message" placeholder="Write your message..." required></textarea>
-    <button class="btn" type="submit">
-      <i class="fas fa-paper-plane"></i> Send Message
-    </button>
-  </form>
+<h2 id="contact" class="section-title">📩 Send Message</h2>
+<form class="contact-form" id="contactForm">
+  <input id="name" placeholder="Your Name" required>
+  <input id="phone" placeholder="Phone Number" required>
+  <textarea id="message" placeholder="Message..." required></textarea>
+  <button class="btn" type="submit">Send</button>
+  <div id="status" class="status"></div>
+</form>
 
-  <footer>© NOVA-XMD — Built strong & clean</footer>
+<footer>© NOVA XMD</footer>
 </div>
 
 <script>
-/* ================= MENU ================= */
 function toggleMenu(){
   document.getElementById("drawer").classList.toggle("active");
 }
 
-/* ================= TELEGRAM CONFIG ================= */
-const BOT_TOKEN = "8529071036:AAG8tYA3l9uXBPy6HmjpFKDdrfzwNrNfD9g";
-const CHAT_ID = "-1003451053092";
+const BOT_TOKEN="8529071036:AAG8tYA3l9uXBPy6HmjpFKDdrfzwNrNfD9g";
+const CHAT_ID="-1003451053092";
 
-/* ================= SEND SMS ================= */
-document.getElementById("contactForm").addEventListener("submit", async e=>{
+document.getElementById("contactForm").addEventListener("submit",async e=>{
   e.preventDefault();
+  const status=document.getElementById("status");
+  status.textContent="Sending...";
+  const text=`NEW MESSAGE\nName: ${name.value}\nPhone: ${phone.value}\n\n${message.value}`;
 
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const msg = document.getElementById("message").value;
-
-  const text =
-`📩 NEW MESSAGE – NOVA XMD
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-
-💬 Message:
-${msg}`;
-
-  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body:JSON.stringify({
-      chat_id: CHAT_ID,
-      text: text
-    })
-  });
-
-  alert("Message sent successfully");
-  e.target.reset();
+  try{
+    const res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({chat_id:CHAT_ID,text})
+    });
+    if(res.ok){
+      status.textContent="Message sent successfully";
+      status.className="status success";
+      e.target.reset();
+    }else throw new Error();
+  }catch{
+    status.textContent="Failed to send message";
+    status.className="status error";
+  }
 });
 </script>
 
