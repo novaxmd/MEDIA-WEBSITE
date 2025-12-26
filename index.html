@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NOVA XMD — DARK EDITION</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA XMD – Modern UI</title>
 
+<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --bg-main:#050507;
-  --bg-soft:#0c0d11;
-  --glass:rgba(255,255,255,0.06);
-  --border:rgba(255,255,255,0.12);
-  --text:#eaeaea;
-  --muted:#9ca3af;
-  --red:#ff003c;
-  --cyan:#00f5ff;
+  --bg:#0b0d12;
+  --bg-soft:#11141b;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --primary:#00e5ff;
+  --accent:#22c55e;
   --radius:18px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   font-family:Inter,sans-serif;
-  background:radial-gradient(circle at top,#0b0c12,var(--bg-main));
+  background:linear-gradient(180deg,#07090f,var(--bg));
   color:var(--text);
 }
+
 a{text-decoration:none;color:inherit}
 section{padding:110px 20px}
 .container{max-width:1200px;margin:auto}
 
 header{
   position:fixed;top:0;left:0;width:100%;
-  background:rgba(5,5,7,.75);
+  background:rgba(10,12,18,.8);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 22px;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 22px;z-index:1000
 }
 .logo{
-  font-weight:800;font-size:1.4rem;
+  font-size:1.4rem;font-weight:800;
 }
-.logo span{color:var(--red)}
+.logo span{color:var(--primary)}
+
 #menu-toggle{
   background:none;border:none;color:var(--text);
   font-size:1.6rem;cursor:pointer
@@ -51,59 +55,58 @@ header{
 #drawer{
   position:fixed;top:0;left:-100%;
   width:280px;height:100vh;
-  background:#07080c;
+  background:#0c0f16;
   border-right:1px solid var(--border);
-  padding:26px;transition:.35s;z-index:2000
+  padding:26px;
+  transition:.35s;z-index:2000
 }
-#drawer ul{list-style:none;margin:40px 0;display:flex;flex-direction:column;gap:18px}
+#drawer ul{
+  list-style:none;margin:40px 0;
+  display:flex;flex-direction:column;gap:18px
+}
 #drawer a{color:var(--muted);font-weight:600}
-#drawer a:hover{color:var(--cyan)}
+#drawer a:hover{color:var(--primary)}
 
 .btn{
   display:inline-flex;align-items:center;gap:.6rem;
-  padding:14px 26px;font-weight:700;
+  padding:14px 26px;
+  font-weight:700;
   border-radius:var(--radius);
-  background:linear-gradient(135deg,var(--red),#b0002a);
-  box-shadow:0 0 22px rgba(255,0,60,.35);
-  transition:.3s;border:none;cursor:pointer
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#000;
+  border:none;cursor:pointer;
+  transition:.3s
 }
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 35px rgba(255,0,60,.65)
-}
+.btn:hover{transform:translateY(-4px)}
 
 .card{
-  background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.02));
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:28px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:.35s
+  transition:.3s
 }
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 40px rgba(0,245,255,.18)
-}
+.card:hover{transform:translateY(-6px)}
 
 .reveal{opacity:0;transform:translateY(40px);transition:.7s}
 .reveal.active{opacity:1;transform:none}
 
 h1,h2,h3{font-weight:800}
 h1{
-  font-size:2.8rem;
-  background:linear-gradient(135deg,var(--red),var(--cyan));
+  font-size:2.7rem;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
   -webkit-background-clip:text;color:transparent
 }
 p{color:var(--muted)}
 
-.stats{
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;margin:50px 0
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px
 }
 
 footer{
-  background:#07080c;
+  background:#0c0f16;
   border-top:1px solid var(--border);
   padding:70px 20px 40px;
   text-align:center
@@ -139,11 +142,11 @@ footer{
 <section>
   <div class="container reveal" style="text-align:center">
     <img src="https://files.catbox.moe/w76aqo.jpg" width="110"
-         style="border-radius:50%;box-shadow:0 0 40px rgba(255,0,60,.6)">
+         style="border-radius:50%;box-shadow:0 0 30px rgba(0,229,255,.4)">
     <h1>NOVA XMD</h1>
-    <p>Dark • Powerful • Modern WhatsApp Bot</p>
+    <p>Clean • Modern • Stable WhatsApp Bot Platform</p>
 
-    <div class="stats">
+    <div class="grid" style="margin:50px 0">
       <div class="card"><h3>⭐ Stars</h3><p id="stars">Loading...</p></div>
       <div class="card"><h3>🍴 Forks</h3><p id="forks">Loading...</p></div>
       <div class="card"><h3>👁 Views</h3><p id="views">N/A</p></div>
@@ -171,8 +174,8 @@ footer{
 
 <section id="deploy">
   <div class="container reveal">
-    <h2 style="text-align:center">Deploy NOVA XMD</h2>
-    <div class="stats">
+    <h2 style="text-align:center;margin-bottom:40px">Deploy NOVA XMD</h2>
+    <div class="grid">
       <div class="card">
         <h3>Heroku</h3>
         <a class="btn" href="https://dashboard.heroku.com/new?template=https://github.com/novaxmd/NOVA-XMD/tree/main" target="_blank">Deploy</a>
@@ -195,7 +198,7 @@ footer{
 
 <footer id="footer">
   <h3>NOVA XMD</h3>
-  <p>Built for power users.</p>
+  <p>Built with clean design and stable structure.</p>
   <div style="margin:26px 0;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
     <a class="btn" href="https://github.com/novaxmd" target="_blank"><i class="fab fa-github"></i></a>
     <a class="btn" href="https://t.me/bmb-xmd" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -206,24 +209,28 @@ footer{
 
 <script>
 const drawer=document.getElementById("drawer");
-menu-toggle.onclick=()=>drawer.style.left="0";
-close-menu.onclick=()=>drawer.style.left="-100%";
+document.getElementById("menu-toggle").onclick=()=>drawer.style.left="0";
+document.getElementById("close-menu").onclick=()=>drawer.style.left="-100%";
 function closeMenu(){drawer.style.left="-100%"}
 
 const reveals=document.querySelectorAll(".reveal");
-const reveal=()=>reveals.forEach(e=>{
- if(e.getBoundingClientRect().top<innerHeight*.9)e.classList.add("active")
-});
+function reveal(){
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<innerHeight*.9){
+      el.classList.add("active")
+    }
+  })
+}
 addEventListener("scroll",reveal);reveal();
 
-year.textContent=new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
 (async()=>{
- const r=await fetch("https://api.github.com/repos/novaxmd/NOVA-XMD").then(r=>r.json());
- stars.textContent=r.stargazers_count||0;
- forks.textContent=r.forks_count||0;
- const u=await fetch("https://api.github.com/users/novaxmd").then(r=>r.json());
- followers.textContent=u.followers||0;
+  const r=await fetch("https://api.github.com/repos/novaxmd/NOVA-XMD").then(r=>r.json());
+  stars.textContent=r.stargazers_count||0;
+  forks.textContent=r.forks_count||0;
+  const u=await fetch("https://api.github.com/users/novaxmd").then(r=>r.json());
+  followers.textContent=u.followers||0;
 })();
 </script>
 
