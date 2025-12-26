@@ -2,236 +2,320 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>NOVA XMD SETTINGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOVA XMD – Modern UI</title>
 
 <!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 :root{
-  --bg:#0b0d12;
-  --bg-soft:#11141b;
-  --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.12);
-  --text:#f1f5f9;
-  --muted:#94a3b8;
-  --primary:#00e5ff;
-  --accent:#22c55e;
-  --radius:18px;
+  --bg:#0b0b0f;
+  --card:#13131a;
+  --primary:#00f5ff;
+  --secondary:#8b5cf6;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,.08);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
+}
+
 body{
-  font-family:Inter,sans-serif;
-  background:linear-gradient(180deg,#07090f,var(--bg));
+  background:radial-gradient(circle at top,#101018,var(--bg));
   color:var(--text);
 }
 
 a{text-decoration:none;color:inherit}
-section{padding:110px 20px}
-.container{max-width:1200px;margin:auto}
 
-header{
-  position:fixed;top:0;left:0;width:100%;
-  background:rgba(10,12,18,.8);
-  backdrop-filter:blur(12px);
+/* ================= NAVBAR ================= */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(11,11,15,.9);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 22px;z-index:1000
+  z-index:1000;
 }
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:.8rem 1.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
 .logo{
-  font-size:1.4rem;font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:800;
+  font-size:1.2rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  color:transparent;
 }
-.logo span{color:var(--primary)}
 
-#menu-toggle{
-  background:none;border:none;color:var(--text);
-  font-size:1.6rem;cursor:pointer
+.logo img{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  box-shadow:0 0 15px rgba(0,245,255,.6);
 }
 
-#drawer{
-  position:fixed;top:0;left:-100%;
-  width:280px;height:100vh;
-  background:#0c0f16;
-  border-right:1px solid var(--border);
-  padding:26px;
-  transition:.35s;z-index:2000
+.menu-btn{
+  font-size:1.6rem;
+  cursor:pointer;
+  color:var(--text);
 }
-#drawer ul{
-  list-style:none;margin:40px 0;
-  display:flex;flex-direction:column;gap:18px
+
+/* ================= DRAWER MENU ================= */
+.drawer{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:#0d0d14;
+  border-left:1px solid var(--border);
+  padding:1.5rem;
+  transition:.35s;
+  z-index:2000;
 }
-#drawer a{color:var(--muted);font-weight:600}
-#drawer a:hover{color:var(--primary)}
+
+.drawer.active{right:0}
+
+.drawer-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:2rem;
+}
+
+.drawer a{
+  display:block;
+  padding:.8rem 0;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.drawer a:hover{color:var(--primary)}
+
+/* ================= CONTENT ================= */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:7rem 1.2rem 3rem;
+  text-align:center;
+}
+
+.title{
+  font-size:2.8rem;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-bottom:2rem;
+}
 
 .btn{
-  display:inline-flex;align-items:center;gap:.6rem;
-  padding:14px 26px;
-  font-weight:700;
-  border-radius:var(--radius);
-  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  padding:.75rem 1.6rem;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
   color:#000;
-  border:none;cursor:pointer;
-  transition:.3s
+  font-weight:600;
+  transition:.3s;
 }
-.btn:hover{transform:translateY(-4px)}
 
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px;
-  transition:.3s
-}
-.card:hover{transform:translateY(-6px)}
-
-.reveal{opacity:0;transform:translateY(40px);transition:.7s}
-.reveal.active{opacity:1;transform:none}
-
-h1,h2,h3{font-weight:800}
-h1{
-  font-size:2.7rem;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  -webkit-background-clip:text;color:transparent
-}
-p{color:var(--muted)}
+.btn:hover{transform:translateY(-3px)}
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px
+  gap:1.6rem;
+  margin:3rem 0;
+}
+
+.card{
+  background:linear-gradient(180deg,var(--card),#0f0f15);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:2rem 1.5rem;
+}
+
+.section-title{
+  font-size:1.9rem;
+  margin-bottom:.6rem;
+}
+
+.section-desc{
+  color:var(--muted);
+  margin-bottom:2rem;
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form{
+  max-width:600px;
+  margin:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:2rem;
+  border-radius:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  margin-bottom:1rem;
+  padding:.9rem 1rem;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#0b0b0f;
+  color:var(--text);
+  outline:none;
+}
+
+.contact-form textarea{
+  resize:none;
+  height:120px;
 }
 
 footer{
-  background:#0c0f16;
+  margin-top:4rem;
+  padding:1.5rem;
   border-top:1px solid var(--border);
-  padding:70px 20px 40px;
-  text-align:center
+  color:var(--muted);
+  font-size:.85rem;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">NOVA<span>-XMD</span></div>
-  <button id="menu-toggle"><i class="fas fa-bars"></i></button>
-</header>
-
-<nav id="drawer">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <strong>NOVA-XMD</strong>
-    <button id="close-menu" style="background:none;border:none;color:#fff;font-size:1.4rem">
-      <i class="fas fa-times"></i>
-    </button>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="logo">
+      <img src="https://files.catbox.moe/io2c4t.jpg" alt="NOVA XMD">
+      NOVA XMD
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
   </div>
-  <ul>
-    <li><a href="#pair" onclick="closeMenu()">Pair</a></li>
-    <li><a href="#deploy" onclick="closeMenu()">Deploy</a></li>
-    <li><a href="#footer" onclick="closeMenu()">Contact</a></li>
-  </ul>
-  <a class="btn" style="justify-content:center"
-     href="https://whatsapp.com/channel/0029VawO6hgF6sn7k3SuVU3z" target="_blank">
-     Follow Channel
-  </a>
 </nav>
 
-<section>
-  <div class="container reveal" style="text-align:center">
-    <img src="https://files.catbox.moe/w76aqo.jpg" width="110"
-         style="border-radius:50%;box-shadow:0 0 30px rgba(0,229,255,.4)">
-    <h1>NOVA XMD</h1>
-    <p>Clean • Modern • Stable WhatsApp Bot Platform</p>
-
-    <div class="grid" style="margin:50px 0">
-      <div class="card"><h3>⭐ Stars</h3><p id="stars">Loading...</p></div>
-      <div class="card"><h3>🍴 Forks</h3><p id="forks">Loading...</p></div>
-      <div class="card"><h3>👁 Views</h3><p id="views">N/A</p></div>
-      <div class="card"><h3>👥 Followers</h3><p id="followers">Loading...</p></div>
-    </div>
-
-    <a href="#pair" class="btn"><i class="fas fa-arrow-down"></i> Start Setup</a>
+<!-- ================= DRAWER ================= -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <strong>NOVA XMD</strong>
+    <i class="fas fa-times" style="cursor:pointer" onclick="toggleMenu()"></i>
   </div>
-</section>
+  <a href="#pair" onclick="toggleMenu()">Pair</a>
+  <a href="#deploy" onclick="toggleMenu()">Deploy</a>
+  <a href="#panel" onclick="toggleMenu()">Panel</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-<section id="pair">
-  <div class="container reveal" style="text-align:center">
-    <h2>Pair Your Bot</h2>
-    <p>Generate QR or Pair Code securely.</p>
-    <div style="margin-top:30px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap">
+<!-- ================= CONTENT ================= -->
+<div class="container">
+
+  <h1 class="title">NOVA XMD</h1>
+  <p class="subtitle">Modern WhatsApp Bot Control Panel</p>
+
+  <!-- PAIR -->
+  <h2 id="pair" class="section-title">🔐 Pair Your Bot</h2>
+  <div class="grid">
+    <div class="card">
       <a class="btn" href="https://nova-pair-site.onrender.com/qr" target="_blank">
         <i class="fas fa-qrcode"></i> QR Code
       </a>
+    </div>
+    <div class="card">
       <a class="btn" href="https://nova-pair-site.onrender.com" target="_blank">
-        <i class="fas fa-link"></i> Pair Code
+        <i class="fas fa-key"></i> Pair Code
       </a>
     </div>
   </div>
-</section>
 
-<section id="deploy">
-  <div class="container reveal">
-    <h2 style="text-align:center;margin-bottom:40px">Deploy NOVA XMD</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Heroku</h3>
-        <a class="btn" href="https://dashboard.heroku.com/new?template=https://github.com/novaxmd/NOVA-XMD/tree/main" target="_blank">Deploy</a>
-      </div>
-      <div class="card">
-        <h3>Render</h3>
-        <a class="btn" href="https://dashboard.render.com/web/new" target="_blank">Deploy</a>
-      </div>
-      <div class="card">
-        <h3>Railway</h3>
-        <a class="btn" href="https://railway.com" target="_blank">Use Railway</a>
-      </div>
-      <div class="card">
-        <h3>Pterodactyl</h3>
-        <a class="btn" href="https://www.mediafire.com/file/zazol9x2wwpoe96/NOVA-XMD-main.zip/file" target="_blank">Panel</a>
-      </div>
-    </div>
+  <!-- DEPLOY -->
+  <h2 id="deploy" class="section-title">🚀 Deploy</h2>
+  <div class="grid" id="panel">
+    <div class="card"><a class="btn">Heroku</a></div>
+    <div class="card"><a class="btn">Railway</a></div>
   </div>
-</section>
 
-<footer id="footer">
-  <h3>NOVA XMD</h3>
-  <p>Built with clean design and stable structure.</p>
-  <div style="margin:26px 0;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-    <a class="btn" href="https://github.com/novaxmd" target="_blank"><i class="fab fa-github"></i></a>
-    <a class="btn" href="https://t.me/bmb-xmd" target="_blank"><i class="fab fa-telegram"></i></a>
-    <a class="btn" href="https://wa.me/255767862457" target="_blank"><i class="fas fa-phone"></i></a>
-  </div>
-  <p style="font-size:.85rem;opacity:.6">© <span id="year"></span> NOVA-XMD</p>
-</footer>
+  <!-- CONTACT -->
+  <h2 id="contact" class="section-title">📩 Send Message</h2>
+  <p class="section-desc">Messages go directly to my Telegram chat.</p>
+
+  <form class="contact-form" id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Your Phone Number" required>
+    <textarea id="message" placeholder="Write your message..." required></textarea>
+    <button class="btn" type="submit">
+      <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+  </form>
+
+  <footer>© NOVA-XMD — Built strong & clean</footer>
+</div>
 
 <script>
-const drawer=document.getElementById("drawer");
-document.getElementById("menu-toggle").onclick=()=>drawer.style.left="0";
-document.getElementById("close-menu").onclick=()=>drawer.style.left="-100%";
-function closeMenu(){drawer.style.left="-100%"}
-
-const reveals=document.querySelectorAll(".reveal");
-function reveal(){
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<innerHeight*.9){
-      el.classList.add("active")
-    }
-  })
+/* ================= MENU ================= */
+function toggleMenu(){
+  document.getElementById("drawer").classList.toggle("active");
 }
-addEventListener("scroll",reveal);reveal();
 
-document.getElementById("year").textContent=new Date().getFullYear();
+/* ================= TELEGRAM CONFIG ================= */
+const BOT_TOKEN = "8529071036:AAG8tYA3l9uXBPy6HmjpFKDdrfzwNrNfD9g";
+const CHAT_ID = "-1003451053092";
 
-(async()=>{
-  const r=await fetch("https://api.github.com/repos/novaxmd/NOVA-XMD").then(r=>r.json());
-  stars.textContent=r.stargazers_count||0;
-  forks.textContent=r.forks_count||0;
-  const u=await fetch("https://api.github.com/users/novaxmd").then(r=>r.json());
-  followers.textContent=u.followers||0;
-})();
+/* ================= SEND SMS ================= */
+document.getElementById("contactForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const msg = document.getElementById("message").value;
+
+  const text =
+`📩 NEW MESSAGE – NOVA XMD
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+
+💬 Message:
+${msg}`;
+
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({
+      chat_id: CHAT_ID,
+      text: text
+    })
+  });
+
+  alert("Message sent successfully");
+  e.target.reset();
+});
 </script>
 
 </body>
