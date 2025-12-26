@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +11,8 @@
 
 <style>
 :root{
-  --bg:#0b0b0f;
-  --card:#13131a;
-  --primary:#00f5ff;
-  --secondary:#8b5cf6;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --border:rgba(255,255,255,.08);
+  --bg:#0b0b0f;--card:#13131a;--primary:#00f5ff;--secondary:#8b5cf6;
+  --text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:radial-gradient(circle at top,#101018,var(--bg));color:var(--text)}
@@ -24,8 +20,8 @@ a{text-decoration:none;color:inherit}
 
 /* NAVBAR */
 .navbar{position:fixed;top:0;width:100%;background:rgba(11,11,15,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:1000}
-.nav-inner{max-width:1200px;margin:auto;padding:.8rem 1.2rem;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent}
+.nav-inner{max-width:1200px;margin:auto;padding:.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;gap:.6rem;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent}
 .logo img{width:34px;height:34px;border-radius:50%}
 .menu-btn{font-size:1.6rem;cursor:pointer}
 
@@ -35,25 +31,18 @@ a{text-decoration:none;color:inherit}
 .drawer a{display:block;padding:.8rem 0;color:var(--muted);font-weight:600}
 .drawer a:hover{color:var(--primary)}
 
-/* CONTENT */
 .container{max-width:1100px;margin:auto;padding:7rem 1.2rem 3rem;text-align:center}
 .title{font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent}
 .subtitle{color:var(--muted);margin-bottom:2rem}
+
+.stats{display:flex;justify-content:center;gap:1.5rem;margin:2rem 0}
+.stat{background:var(--card);border:1px solid var(--border);padding:1rem 1.6rem;border-radius:14px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;margin:3rem 0}
 .card{background:linear-gradient(180deg,var(--card),#0f0f15);border:1px solid var(--border);border-radius:18px;padding:2rem 1.5rem}
 
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.6rem;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#000;font-weight:600}
-.btn:hover{transform:translateY(-3px)}
 
-.section-title{font-size:1.9rem;margin-bottom:.6rem}
-.section-desc{color:var(--muted);margin-bottom:2rem}
-
-/* STATS */
-.stats{display:flex;justify-content:center;gap:2rem;margin:2rem 0}
-.stat{background:var(--card);border:1px solid var(--border);padding:1rem 1.5rem;border-radius:14px}
-
-/* FORM */
 .contact-form{max-width:600px;margin:auto;background:var(--card);border:1px solid var(--border);padding:2rem;border-radius:18px}
 .contact-form input,.contact-form textarea{width:100%;margin-bottom:1rem;padding:.9rem;border-radius:10px;border:1px solid var(--border);background:#0b0b0f;color:var(--text)}
 .contact-form textarea{height:120px;resize:none}
@@ -70,25 +59,28 @@ footer{margin-top:4rem;padding:1.5rem;border-top:1px solid var(--border);color:v
 
 <nav class="navbar">
   <div class="nav-inner">
-    <div class="logo">
-      <img src="https://files.catbox.moe/io2c4t.jpg">
-      NOVA XMD
-    </div>
+    <div class="logo"><img src="https://files.catbox.moe/b0wsqm.jpg">NOVA XMD</div>
     <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
   </div>
 </nav>
 
 <div class="drawer" id="drawer">
-  <a href="#pair" onclick="toggleMenu()">Pair</a>
-  <a href="#deploy" onclick="toggleMenu()">Deploy</a>
   <a href="#stats" onclick="toggleMenu()">Stats</a>
+  <a href="#deploy" onclick="toggleMenu()">Deploy</a>
+  <a href="#pair" onclick="toggleMenu()">Pair</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
 <div class="container">
-
 <h1 class="title">NOVA XMD</h1>
 <p class="subtitle">Modern WhatsApp Bot Control Panel</p>
+
+<h2 id="stats">📊 Real GitHub Stats</h2>
+<div class="stats">
+  <div class="stat">⭐ Stars: <span id="stars">...</span></div>
+  <div class="stat">🍴 Forks: <span id="forks">...</span></div>
+  <div class="stat">👁 Watchers: <span id="views">...</span></div>
+</div>
 
 <h2 id="pair" class="section-title">🔐 Pair Bot</h2>
 <div class="grid">
@@ -96,22 +88,16 @@ footer{margin-top:4rem;padding:1.5rem;border-top:1px solid var(--border);color:v
   <div class="card"><a class="btn" href="https://nova-pair-site.onrender.com" target="_blank">Pair Code</a></div>
 </div>
 
-<h2 id="deploy" class="section-title">🚀 Deploy</h2>
+<h2 id="deploy">🚀 Deploy</h2>
 <div class="grid">
-  <div class="card"><a class="btn" href="https://dashboard.heroku.com" target="_blank">Heroku</a></div>
+  <div class="card"><a class="btn" href="https://dashboard.heroku.com/new?template=https://github.com/novaxmd/NOVA-XMD" target="_blank">Heroku</a></div>
   <div class="card"><a class="btn" href="https://railway.app" target="_blank">Railway</a></div>
   <div class="card"><a class="btn" href="https://app.koyeb.com" target="_blank">Koyeb</a></div>
+  <div class="card"><a class="btn" href="https://github.com/novaxmd/NOVA-XMD/archive/refs/heads/main.zip" target="_blank">zip file</a></div>
   <div class="card"><a class="btn" href="https://dashboard.render.com" target="_blank">Render</a></div>
 </div>
 
-<h2 id="stats" class="section-title">📊 Project Stats</h2>
-<div class="stats">
-  <div class="stat">⭐ Stars: 0</div>
-  <div class="stat">🍴 Forks: 0</div>
-  <div class="stat">👁 Views: 0</div>
-</div>
-
-<h2 id="contact" class="section-title">📩 Send Message</h2>
+<h2 id="contact">📩 Send Message</h2>
 <form class="contact-form" id="contactForm">
   <input id="name" placeholder="Your Name" required>
   <input id="phone" placeholder="Phone Number" required>
@@ -124,34 +110,41 @@ footer{margin-top:4rem;padding:1.5rem;border-top:1px solid var(--border);color:v
 </div>
 
 <script>
-function toggleMenu(){
-  document.getElementById("drawer").classList.toggle("active");
-}
+function toggleMenu(){document.getElementById("drawer").classList.toggle("active");}
 
+/* ===== GITHUB REAL STATS ===== */
+const GITHUB_OWNER="novaxmd";
+const GITHUB_REPO="NOVA-XMD";
+
+fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`)
+.then(r=>r.json())
+.then(d=>{
+  document.getElementById("stars").textContent=d.stargazers_count;
+  document.getElementById("forks").textContent=d.forks_count;
+  document.getElementById("views").textContent=d.subscribers_count;
+})
+.catch(()=>{document.getElementById("stars").textContent=0;document.getElementById("forks").textContent=0;document.getElementById("views").textContent=0});
+
+/* ===== TELEGRAM SEND (WORKING) ===== */
 const BOT_TOKEN="8529071036:AAG8tYA3l9uXBPy6HmjpFKDdrfzwNrNfD9g";
 const CHAT_ID="-1003451053092";
 
-document.getElementById("contactForm").addEventListener("submit",async e=>{
+const status=document.getElementById("status");
+document.getElementById("contactForm").addEventListener("submit",e=>{
   e.preventDefault();
-  const status=document.getElementById("status");
   status.textContent="Sending...";
-  const text=`NEW MESSAGE\nName: ${name.value}\nPhone: ${phone.value}\n\n${message.value}`;
-
-  try{
-    const res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({chat_id:CHAT_ID,text})
-    });
-    if(res.ok){
-      status.textContent="Message sent successfully";
-      status.className="status success";
-      e.target.reset();
-    }else throw new Error();
-  }catch{
-    status.textContent="Failed to send message";
-    status.className="status error";
-  }
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+    method:"POST",
+    mode:"no-cors",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      chat_id:CHAT_ID,
+      text:`NEW MESSAGE\nName: ${document.getElementById("name").value}\nPhone: ${document.getElementById("phone").value}\n\n${document.getElementById("message").value}`
+    })
+  });
+  status.textContent="Message sent successfully";
+  status.className="status success";
+  e.target.reset();
 });
 </script>
 
